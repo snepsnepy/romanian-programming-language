@@ -34,7 +34,7 @@ export default class Environment {
 
         //? Cannot assign to constant;
         if (env.constants.has(varName)) {
-            throw `Variabile ${varName} nu poate fi reatribuita. Aceasta este o constanta.`;
+            throw `Variabila '${varName}' nu poate fi reatribuita. Aceasta este o constanta.`;
         }
         env.variables.set(varName, value);
         return value;

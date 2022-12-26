@@ -19,8 +19,8 @@ export enum TokenType {
 
 //* A dictionary for the reserved keywords
 const KEYWORDS: Record<string, TokenType> = {
-    let: TokenType.Let,
-    const: TokenType.Const
+    variabila: TokenType.Let,
+    constanta: TokenType.Const
 }
 
 export interface Token {

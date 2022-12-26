@@ -20,7 +20,7 @@ export default class Parser {
     private expect(type: TokenType, err: any) {
         const prev = this.tokens.shift() as Token;
         if (!prev || prev.type != type) {
-            console.error("Parser Error:\n", err, prev, "Expecting: ", type);
+            console.error("Eroare la parsare:\n", err, prev, "Se asteapta: ", type);
             Deno.exit(1);
         }
 
@@ -64,7 +64,7 @@ export default class Parser {
         const isConstant = this.eat().type == TokenType.Const;
         const identifier = this.expect(
             TokenType.Identifier, 
-            "Expected identifier name following let | const keywords"
+            "Un nume este necesar dupa folosirea cuvintelor 'variabila' | 'constanta'"
         ).value;
         
         if (this.at().type == TokenType.Semicolon) {
@@ -73,7 +73,7 @@ export default class Parser {
             //? If the variable is not a constant and we have a semicolon after the identifier
             //? then we can return the variable. (else block);
             if (isConstant) {
-                throw "Must assign value to constant expression. No value provided."
+                throw "Constanta necesita atribuirea unei valori. Nu a fost detectata o valoare."
             } 
 
             return { 
@@ -85,7 +85,7 @@ export default class Parser {
 
         this.expect(
             TokenType.Equals, 
-            "Expected equals token following identifier in var declaration."
+            "Este necesar semnul '=' urmat de o valoare."
         )
 
         const declaration = { 
@@ -97,7 +97,7 @@ export default class Parser {
 
         this.expect(
             TokenType.Semicolon, 
-            "Variable declaration statement must end with semicolon."
+            "Declararea variabilei necesita ';' la finalul expresiei."
         )
 
         return declaration;
