@@ -5,4 +5,4 @@
 
 [![ro](https://img.shields.io/badge/lang-ro-yellow.svg)](https://github.com/snepsnepy/romanian-programming-language/blob/main/README.ro.md)
 
-Starting as a personal project, RPL wants to become a programming language that allows the user to write code in the Romanian language.
+###Starting as a personal project, RPL wants to become a programming language that allows the user to write code in the Romanian language.
