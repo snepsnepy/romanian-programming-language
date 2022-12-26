@@ -5,11 +5,12 @@
 
 [![ro](https://img.shields.io/badge/lang-ro-yellow.svg)](https://github.com/snepsnepy/romanian-programming-language/blob/main/README.ro.md)
 
-### Starting as a personal project, RPL wants to become a programming language that allows the user to write code in the Romanian language.
+### Starting as a personal project, RPL wants to become a programming language that allows the user to write code in the Romanian language in a fun and interactive way.
 
 ##### Table of Contents  
 [How to use](#headers)  
-[How to use](#langspec)
+[Language Specifications](#langspec)   
+[Binary Operations](#binaryop)
  
 <a name="headers"/>
 <h2>How to use</h2>
@@ -21,9 +22,36 @@
 That's it! Now you can type RPL code. 😲 
 
 <a name="langspec"/>
-<h2>RPL Language Specification</h2>
+<h2>RPL Language Specifications</h2>
 
-<b>Normal variables</b> are identifiers that are not RPL language keywords. Note that a variable name must contain only letters, no white spaces, no sybmols or numbers. They're also case-sensitive. This type of variables can be reassigned. <span style="color:red;">Do not forget, in RPL every variable declaration statement must end with a semicolon.</span>
+<b>Normal variables</b> are identifiers that are not RPL language keywords. Note that a variable name must contain only letters, no white spaces, no sybmols or numbers. They're also case-sensitive. This type of variables can be reassigned. 
+```diff
+- Do not forget, in RPL every variable declaration statement must end with a semicolon.
+```
 
     variabila x = 10;
+    variabila foo = (45 + 30) - 5;
+    variabila bar = x + 30;
     
+
+<b>Constant variables</b> are just like the normal variables but they can not be reassigned. When you declare this type of variables, a value must be provided.
+    
+    constanta y = 30;
+    
+    
+<a name="binaryop"/>
+<h2>Binary Operations</h2>
+
+RPL offers support for binary operations. Code example:
+
+    variabila foo = 50;
+    variabile bar = 30;
+    
+    foo - bar
+    foo + bar
+    foo / bar
+    bar * foo
+    
+    
+    
+***RPL is still under development, so stay tuned for more updates! Thank you!***
