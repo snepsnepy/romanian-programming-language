@@ -39,6 +39,13 @@ That's it! Now you can type RPL code. 😲
     constanta y = 30;
     
     
+<b>Printing function</b> in RPL. You can print a message in RPL by using the following syntax:
+    
+    afiseaza("Lorem ipsum")
+    
+    
+<b> This section is still under development.</b> In the future, it will be possible to display the value of a variable.
+
 <a name="binaryop"/>
 <h2>Binary Operations</h2>
 
