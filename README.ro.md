@@ -39,7 +39,15 @@ Felicitari! Acum poti scrie cod folosind RPL. 😲
     constanta x = 10;
     
     constanta z; -> Aceasta va afisa un mesaj de eroare
+
+
+<b>Afisarea</b> in RPL. Se poate afisa un mesaj in RPL folosind urmatoarea sintaxa:
     
+    afiseaza("Lorem ipsum")
+    
+    
+<b> Aceasta sectiune este inca in proces de dezvoltare.</b> In viitor, va fi posibila afisarea valorii unei variabile.
+
     
 <a name="binaryop"/>
 <h2>Operatii cu numere binare</h2>
