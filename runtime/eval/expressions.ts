@@ -1,7 +1,11 @@
-import { AssignmentExpr, BinaryExpr,Identifier } from "../../frontend/AST.ts";
+import { AssignmentExpr, BinaryExpr,Identifier, PrintExpr } from "../../frontend/AST.ts";
 import Environment from "../environment.ts";
 import { evaluate } from "../interpreter.ts";
-import { NumberVal,RuntimeVal,MK_NULL } from "../values.ts";
+import { NumberVal, RuntimeVal, MK_NULL, StringVal } from "../values.ts";
+
+export function evaluatePrintExpression(text: PrintExpr): StringVal {
+    return { value: text.value, type: "string" }
+}
 
 function evaluateNumericBinaryExpr(lhs: NumberVal, rhs: NumberVal, operator: string): NumberVal {
     let result: number;

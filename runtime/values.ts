@@ -1,6 +1,6 @@
 //* Values is gonna define the types that we're gonna use at runtime
 
-export type ValueType = "null" | "number" | "boolean";
+export type ValueType = "null" | "number" | "boolean" | "string";
 
 export interface RuntimeVal {
   type: ValueType;
@@ -18,6 +18,11 @@ export function MK_NULL() {
 export interface NumberVal extends RuntimeVal {
   type: "number";
   value: number;
+}
+
+export interface StringVal extends RuntimeVal {
+  type: "string",
+  value: string
 }
 
 export function MK_NUMBER(n = 0) {

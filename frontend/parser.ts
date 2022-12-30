@@ -1,4 +1,4 @@
-import { Stmt, Program, Expr, BinaryExpr, NumericLiteral, Identifier, VarDeclaration, AssignmentExpr } from "./AST.ts";
+import { Stmt, Program, Expr, BinaryExpr, NumericLiteral, Identifier, VarDeclaration, AssignmentExpr, PrintExpr } from "./AST.ts";
 import { Tokenize, Token, TokenType } from "./lexer.ts";
 
 export default class Parser {
@@ -48,6 +48,8 @@ export default class Parser {
         //skip to parse expr
         switch (this.at().type) {
             
+            case TokenType.Print:
+                return this.parsePrintExpr();
             case TokenType.Let:
             case TokenType.Const:
                 return this.parseVarDeclaration();
@@ -55,6 +57,44 @@ export default class Parser {
             default:
                 return this.parseExpr();
         }
+    }
+
+    private parsePrintExpr(): Stmt {
+        this.eat().type == TokenType.Print;
+        let printedText = "";
+
+
+        this.expect(
+            TokenType.OpenParen,
+            "Dupa folosirea cuvantului 'afiseaza' este necesara folosirea '('"
+        )
+
+        this.expect(
+            TokenType.Quotation,
+            "Este necesara folosirea '\"' dupa '('"
+        )
+        
+        if (this.at().type != TokenType.OpenParen || this.at().type != TokenType.Quotation) {
+            printedText += this.at().value.toString();
+            this.eat();
+        }
+
+        this.expect(
+            TokenType.Quotation,
+            "Este necesara folosirea '\"' dupa specificarea textului."
+        )
+
+        this.expect(
+            TokenType.CloseParen,
+            "Este necesara folosirea ')' la finalul printarii."   
+        )
+
+       const print = {
+            kind: "PrintExpr",
+            value: printedText
+       } as PrintExpr
+
+       return print;
     }
 
     //* Structure of a variable declaration:

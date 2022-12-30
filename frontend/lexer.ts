@@ -8,6 +8,8 @@ export enum TokenType {
     //? Keywords
     Let,
     Const,
+    Print,
+    Quotation,
     //? Grouping * Operators
     BinaryOperator,
     Equals,
@@ -20,7 +22,8 @@ export enum TokenType {
 //* A dictionary for the reserved keywords
 const KEYWORDS: Record<string, TokenType> = {
     variabila: TokenType.Let,
-    constanta: TokenType.Const
+    constanta: TokenType.Const,
+    afiseaza: TokenType.Print
 }
 
 export interface Token {
@@ -68,6 +71,8 @@ export function Tokenize(sourceCode: string): Token[] {
             tokens.push(token(src.shift(), TokenType.Equals));
         } else if (src[0] == ';') {
             tokens.push(token(src.shift(), TokenType.Semicolon));
+        } else if (src[0] == '"') {
+            tokens.push(token(src.shift(), TokenType.Quotation));
         } else {
             //? Handle multicharacter tokens ('<=' for example)
 

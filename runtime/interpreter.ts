@@ -1,7 +1,7 @@
 import { RuntimeVal, NumberVal } from "./values.ts"
-import { Stmt, BinaryExpr, Program, Identifier, VarDeclaration, NumericLiteral, AssignmentExpr } from "../frontend/AST.ts"
+import { Stmt, BinaryExpr, Program, Identifier, VarDeclaration, NumericLiteral, AssignmentExpr, PrintExpr } from "../frontend/AST.ts"
 import Environment from "./environment.ts";
-import { evalAssignment, evalIdentifier,evaluateBinaryExpression } from "./eval/expressions.ts";
+import { evalAssignment, evalIdentifier,evaluateBinaryExpression, evaluatePrintExpression } from "./eval/expressions.ts";
 import { evaluateProgram,evaluateVarDeclaration } from "./eval/statements.ts";
 
 // * Used this function to evaluate the astNodes and translating them into values;
@@ -21,6 +21,9 @@ export function evaluate(astNode: Stmt, env: Environment): RuntimeVal {
 
         case "BinaryExpr": 
             return evaluateBinaryExpression(astNode as BinaryExpr, env);
+        
+        case "PrintExpr":
+            return evaluatePrintExpression(astNode as PrintExpr);
 
         case "Program":
             return evaluateProgram(astNode as Program, env);

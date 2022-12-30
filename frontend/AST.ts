@@ -3,6 +3,7 @@ export type NodeType =
 //? Statements
 | "Program"
 | "VarDeclaration"
+| "PrintExpr"
 
 //? Expressions
 | "AssignmentExpr"
@@ -51,3 +52,7 @@ export interface NumericLiteral extends Expr {
     value: number;
 }
 
+export interface PrintExpr extends Expr {
+    kind: "PrintExpr";
+    value: string;
+}
